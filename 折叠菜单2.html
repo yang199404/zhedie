@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>折叠菜单</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        ul{
+            list-style:none;
+        }
+        a{
+            text-decoration:none;
+        }
+
+
+        #menu .main-menu
+        {
+
+            background: #EA7500;
+            display:block;
+            width:150px;
+            border:1px solid #000;
+
+        }
+
+        #menu .sub-menu {
+
+            display:none;
+
+            background:#D3FF93;
+            border:1px solid #000;
+            list-style-type:none;
+        }
+
+        h3{
+            height:20px;
+
+            line-height:20px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<ul id="menu">
+    <li class="main-menu">
+        <h3>辽宁</h3>
+        <ul class="sub-menu">
+            <li>沈阳</li>
+            <li>大连</li>
+            <li>鞍山</li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>吉林</h3>
+        <ul class="sub-menu">
+            <li>长春</li>
+            <li>四平</li>
+            <li>吉林</li>
+        </ul>
+    </li>
+    <li class="main-menu">
+        <h3>黑龙江</h3>
+        <ul class="sub-menu">
+            <li>哈尔滨</li>
+            <li>齐齐哈尔</li>
+            <li>佳木斯</li>
+        </ul>
+    </li>
+
+</ul>
+<script>
+    var oMenu=document.getElementById("menu");
+    var aLi=oMenu.getElementsByTagName("li");
+    for(var i=0;i<aLi.length;i++){
+        aLi[i].bFlag=true;
+        if(aLi[i].className=="main-menu"){
+            aLi[i].onclick=function(){
+                if(this.bFlag){
+                    this.getElementsByTagName("ul")[0].style.display="block";
+                }
+                else{
+                    this.getElementsByTagName("ul")[0].style.display="none";
+                }
+                this.bFlag=!this.bFlag;
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
